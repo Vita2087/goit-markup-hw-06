@@ -221,6 +221,8 @@ textarea {
   visibility: hidden;
   pointer-events: none;
 
+  transform: translatex(100%) rotate(50deg) scale(8);
+
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -228,9 +230,16 @@ textarea {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+
+  transform: translatex(0%);
+  transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mobile-menu-container {
   padding: 72px 24px 40px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .mobile-menu-close {
   position: absolute;
@@ -253,18 +262,20 @@ textarea {
   background-color: #404bbf;
   border: none;
 }
+.cross {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .mobile-menu-close:hover .cross,
 .mobile-menu-close:focus .cross {
   fill: #fff;
 }
-.cross {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.nav-mob-menu {
+  margin-bottom: auto;
 }
 .mob-menu-list {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin-bottom: 168px;
 }
 .mob-menu-link {
   font-weight: 700;
@@ -307,6 +318,11 @@ textarea {
   height: 40px;
   border-radius: 50%;
   background-color: #4d5ae5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mob-menu-soc-link:hover,
+.mob-menu-soc-link:focus {
+  background-color: #404bbf;
 }
 .mob-menu-soc-icon {
   fill: #f4f4fd;

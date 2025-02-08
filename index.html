@@ -6,6 +6,7 @@
     <!-- МАКЕТ
  https://www.figma.com/design/8BFZB4eEboWqd2iz3lM3X1/Web-Studio-(Version-5.0)-(Copy)?node-id=296708-626&p=f&t=jWHRd68fOqrZZ3jA-0 -->
     <!-- Оптимізувати jpg https://squoosh.app/ -->
+    <!-- https://imagecompressor.com/uk/ -->
     <!-- Викачати svg https://icomoon.io/app/#/select -->
     <title>WebStudio</title>
     <!-- НОРМАЛАЙЗ -->
@@ -65,16 +66,24 @@
           </ul>
         </address>
         <!----------------------------------------------- MObile MENU -->
-        <button class="header-burger-btn-menu" type="button">
+        <button
+          class="header-burger-btn-menu"
+          type="button"
+          data-mobile-menu-open
+        >
           <svg class="header-burger-menu-icon" width="24" height="24">
             <use href="./images/icons.svg#icon-burger"></use>
           </svg>
         </button>
       </div>
 
-      <div class="mobile-menu is-open">
+      <div class="mobile-menu is-open" data-mobile-menu>
         <div class="container mobile-menu-container">
-          <button class="mobile-menu-close" type="button">
+          <button
+            class="mobile-menu-close"
+            type="button"
+            data-mobile-menu-close
+          >
             <svg class="cross" width="8" height="8">
               <use href="./images/icons.svg#icon-cross"></use>
             </svg>
@@ -210,13 +219,17 @@
         </div>
       </section>
       <!------------------------------------------------ SECTION 3 Our Team. H2 id+ul>img>div>>h3+p+ul>a>>svg -->
-      <section class="hidden team">
+      <section class="team">
         <div class="container">
           <h2 class="section-title team-title" id="studio">Our Team</h2>
           <ul class="team-list">
             <li class="team-item">
               <img
-                src="./images/img1.jpg"
+                srcset="
+                  ./images/team/team-1-min.jpg    1x,
+                  ./images/team/team-1@2x-min.jpg 2x
+                "
+                src="./images/team/team-1-min.jpg 1x"
                 alt="mark guerrero"
                 width="264"
                 height="260"
@@ -393,12 +406,35 @@
           <ul class="portfolio-list">
             <li class="portfolio-item">
               <div class="div-overlay">
-                <img
-                  src="./images/img5.jpg"
-                  alt="banking app"
-                  width="360"
-                  height="300"
-                />
+                <picture>
+                  <source
+                    media="(min-width: 1158px)"
+                    srcset="
+                      ./images/portfolio/portfolio-desk-1-min.jpg    1x,
+                      ./images/portfolio/portfolio-desk-1@2x-min.jpg 2x
+                    "
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="
+                      ./images/portfolio/portfolio-tab-1-min.jpg    1x,
+                      ./images/portfolio/portfolio-tab-1@2x-min.jpg 2x
+                    "
+                  />
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                      ./images/portfolio/portfolio-mob-1-min.jpg    1x,
+                      ./images/portfolio/portfolio-mob-1@2x-min.jpg 2x
+                    "
+                  />
+                  <img
+                    src="./images/portfolio/portfolio-desk-1-min.jpg    1x"
+                    alt="banking app"
+                    width="360"
+                    height="300"
+                  />
+                </picture>
                 <p class="p-overlay">
                   14 Stylish and User-Friendly App Design Concepts · Task
                   Manager App · Calorie Tracker App · Exotic Fruit Ecommerce App
@@ -689,5 +725,6 @@
     </div>
 
     <script src="./Js/modal.js"></script>
+    <script src="./Js/mob-menu.js"></script>
   </body>
 </html>
