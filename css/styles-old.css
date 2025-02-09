@@ -1,18 +1,18 @@
 /*-------------------------------------- SECTION 1------------------------------------- */
-.hero-image {
+.section-hero {
   background: #2e2f42;
   padding-top: 188px;
   padding-bottom: 188px;
   max-width: 1440px;
   margin: 0 auto;
-  background-image: linear-gradient(
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
     url(../images/people.jpg);
-  background-repeat: no-repeat;
-  background-size: cover; /* для позиц bg-img на всю площу фону елемента*/
-  background-position: center;
 }
 .page-title {
   font-weight: 700;
@@ -26,15 +26,8 @@
   max-width: 496px;
   margin-bottom: 48px;
 }
-button {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #fff;
-  background-color: #4d5ae5;
-}
-.button-text {
+
+.button-box {
   border: none;
   border-radius: 4px;
   display: block;
@@ -44,8 +37,8 @@ button {
   min-width: 169px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /*для плавної зміни кольору фону кнопки*/
 }
-.button-text:hover,
-.button-text:focus {
+.button-box:hover,
+.button-box:focus {
   background-color: #404bbf;
 }
 /* -------------------------------------SECTION 2--------------------------------------- */
