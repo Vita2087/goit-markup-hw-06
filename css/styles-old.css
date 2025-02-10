@@ -1,9 +1,7 @@
-
 /* -----------------------------------SECTION 3---------------------------------------- */
 .third-section-team {
   background: #f4f4fd;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding: 120px 0;
 }
 .section-title {
   font-weight: 700;
@@ -66,9 +64,8 @@
   margin-right: 24px;
 } */
 /* ------------------------------------------------SECTION 4---------------------------------------------- 4 */
-.our-portfolio {
-  padding-top: 120px;
-  padding-bottom: 120px;
+.fourth-section-portfolio {
+  padding: 120px 0;
 }
 .section-title {
   margin-bottom: 72px;
@@ -235,7 +232,6 @@
 }
 .footer-icon {
   fill: #fff;
-  margin-left: 16px;
 }
 /*------------------------------------ Backdrop + Modal Window------------------------- */
 .backdrop {

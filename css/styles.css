@@ -459,14 +459,14 @@ textarea {
 .div-second-section-icons {
   display: none;
 }
-.section-subtitle {
+.section-subtitle.mob-shrift {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.11;
   letter-spacing: 0.02em;
   color: #2e2f42;
   text-align: center;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 .section-text {
   font-weight: 500;
@@ -484,7 +484,7 @@ textarea {
     /* (100%-1 * 24px) / 2) */
     width: calc((100% - 24px) / 2);
   }
-  .section-subtitle {
+  .section-subtitle.mob-shrift {
     text-align: left;
   }
 }
@@ -504,14 +504,13 @@ textarea {
     background-color: #f4f4fd;
     border: 1px solid #8e8f99;
     border-radius: 4px;
-    /* padding: 24px 100px; */
     margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 112px;
   }
-  .section-subtitle {
+  .section-subtitle.mob-shrift {
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
@@ -523,5 +522,73 @@ textarea {
 /* ------------------------------------------------------SECTION 3-------------- */
 .third-section-team {
   background: #f4f4fd;
-  padding: 96px;
+  padding: 96px 0;
+}
+.section-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #2e2f42;
+  text-transform: capitalize;
+  margin-bottom: 72px;
+}
+.section-subtitle {
+  margin-bottom: 8px;
+}
+.section-text.mob-shrift {
+  font-weight: 400;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 72px;
+}
+.team-item {
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+.div-team-who-is {
+  padding: 32px 0; /* 16px; */
+  text-align: center;
+}
+.team-soc-icons-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+.soc-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* плавна зміна кольору фона посилання*/
+}
+.soc-link:hover,
+.soc-link:focus {
+  background-color: #404bbf;
+}
+.soc-icon {
+  fill: #f4f4fd;
+}
+@media screen and (min-width: 768px) {
+  /* .team-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 24px;
+    column-gap: 64px;
+  } */
+  .team-item {
+     width: calc((100% - 24px) / 2);
+  }
 }
