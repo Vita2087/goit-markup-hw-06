@@ -820,3 +820,225 @@ textarea {
   }
 }
 
+/* ----------------------------------------------Backdrop + Modal Window---- */
+.backdrop {
+  position: fixed; /*початкова позиція, стан спокою, перед появою(анімацією)*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+
+  opacity: 0;
+  visibility: hidden; /* приховати фон з вікном */
+  pointer-events: none; /*заборона кліку по фону з вікном, коли він в стані спокою,ще не явився*/
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.modal /*вікно*/ {
+  position: absolute; /*зпозиціоноване вікно відносно перекриваючого фіксованого фону*/
+  top: 50%; /* точка лівого верхнього кута стала на 50% від верху перекриваючого фону і на 50% від лівого краю фону(бекдропу), точка чітко по центру, а прямокутник(вікно) відповідно правіше.*/
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* вікно зміщене на 50% від його ширини вліво і на 50% вверх,*/
+  width: 288px;
+  min-height: 623px;
+  border-radius: 4px;
+  background-color: #fcfcfc;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 72px 16px 0 16px;
+}
+.backdrop:not(.is-open) .modal {
+  /*коли у перекриваючого фона нема класу .is-open вікно закрите і має нову анімацію scale 2,тобто у 2рази збільшене, а коли появиться клас-вікно появиться зі збільшеного стану і анімується в спокійний, тобто менший розмір */
+  transform: translate(-50%, -50%) scale(2);
+}
+/* -----------------------------------------------------FORM---- */
+.form-btn-cross {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #e7e9fc;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-btn-cross:hover,
+.form-btn-cross:focus {
+  background-color: #404bbf;
+  border: none;
+}
+.form-btn-cross:hover .cross,
+.form-btn-cross:focus .cross {
+  fill: #fff;
+}
+.cross {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.p-form-modal {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+
+  text-align: center;
+  margin-bottom: 16px;
+}
+.form-modal {
+  height: 336px;
+  width: 256px;
+  margin: 16px auto;
+  border: transparent;
+  border-radius: 4px;
+  display: block;
+}
+.div-label-input /*перша дочка форми*/ {
+  /* display: block; */
+  width: 100%;
+  margin-bottom: 8px;
+}
+.div-label-textarea {
+  margin-bottom: 16px;
+}
+.label-form {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  margin-bottom: 4px;
+  display: block;
+}
+.div-input-icon {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-form {
+  background-color: transparent;
+  width: 100%; /*від ширини форми, а у форми шир фікс*/
+  height: 40px;
+  padding-left: 34px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-form:focus {
+  border-color: #4d5ae5;
+}
+.input-form:focus + .input-icon {
+  fill: #4d5ae5;
+}
+.textarea-form {
+  color: rgba(46, 47, 66, 0.4);
+  background-color: transparent;
+  height: 120px;
+  width: 100%;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  padding: 8px 16px;
+
+  resize: none;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.textarea-form::placeholder {
+  color: rgba(46, 47, 66, 0.4);
+}
+.textarea-form:focus {
+  border-color: #4d5ae5;
+}
+/* --------------------------------------------------------CHECKBOX--------------------- */
+.div-input-checkbox-label {
+  margin-bottom: 24px;
+}
+/*display: flex;
+  align-items: center; */
+/* gap: 24px; */
+
+.label-check {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  display: flex;
+  align-items: center;
+}
+.box-check /* малюєм кубик-фейковий чекбокс для галочки*/ {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  margin-right: 8px;
+  flex-shrink: 0;
+
+  display: inline-flex; /*для вирівн іконки-галочки*/
+  align-items: center;
+  justify-content: center;
+  fill: transparent; /*для прозорої галочки коли інпут не чекнутий, стан спокою*/
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.privacy-policy {
+  text-decoration: underline;
+  line-height: 1.33;
+  font-size: 12px;
+  color: #4d5ae5;
+}
+/* властивості отримує фейковий чекбокс=дитина лейбла сусідом котрого є поле-чекбокс в стані коли на нього нажали */
+.input-check:checked + .label-check .box-check {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
+}
+/* ----------------------------КНОПКА Submit------ */
+.form-btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #fff;
+
+  background-color: #4d5ae5;
+  border: none;
+  border-radius: 4px;
+  min-width: 169px;
+  height: 56px;
+  padding: 16px 32px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-btn:hover,
+.form-btn:focus {
+  background-color: #404bbf;
+}
