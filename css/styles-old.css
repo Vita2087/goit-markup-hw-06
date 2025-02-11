@@ -1,69 +1,7 @@
-/* ------------------------------------------------SECTION 4---------------------------------------------- 4 */
-.fourth-section-portfolio {
-  padding: 120px 0;
-}
-.section-title {
-  margin-bottom: 72px;
-}
-.portfolio-list {
-  display: flex;
-  row-gap: 48px;
-  column-gap: 24px;
-  max-width: 1128px;
-  flex-wrap: wrap;
-}
-.portfolio-item {
-  /* ((100%-2 * 24) /3)  шир батька мінус сума проміжків / к-сть ел В 1РЯДКУ! не в 2х*/
-  width: calc((100% - 48px) / 3);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавна тінь картки*/
-}
-.div-overlay {
-  position: relative; /*положення в потоці*/
-  overflow: hidden; /*сховати оверлей коли він статичний(ще без руху) */
-}
-.p-overlay /* параграф, не псевдоелемент*/ {
-  position: absolute;
-  top: 0; /*зміщення елемента до верхньої межі контейнера*/
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #4d5ae5;
-
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #f4f4fd;
-  padding: 40px 32px;
-
-  transform: translateY(
-    100%
-  ); /*стоїть на 100% розміра батька, не рухається без ховера.Число наскільки недосягне до верху оверлей статичний відносно батька.Якщо транслейт 30% статичний оверлей буде сягати 70% відносно батька і 30% недосягати відносно батька*/
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* плавну появу задаєм на сам ел, не в ховер*/
-  overflow: auto; /* при переповнені дасть скролбари*/
-}
-.portfolio-item:hover {
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
-    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-}
-.portfolio-item:hover .p-overlay /*дія на ел.нащадка оверлей,у котрого батько ітем,тобто li*/ {
-  transform: translateY(
-    0%
-  ); /*число наскільки недоїде вверх оверлей відносно розміру батька(якщо транслейт 10%, а батько 100% доїде на 90% вверх, не доїде 10% до верху*/
-}
-.div-portfolio-content {
-  padding: 32px 16px;
-  text-align: left;
-  border: 1px solid #e7e9fc;
-  border-top: none;
-}
-.portfolio-subtitle {
-  margin-bottom: 8px;
-}
 /* ----------------------------------- FOOTER-------------------------------------------- */
 .page-footer {
   background: #2e2f42;
-  padding-bottom: 100px;
-  padding-top: 100px;
+  padding: 100px 0;
 }
 .logo-footer .logo-part {
   color: #f4f4fd;
@@ -90,7 +28,6 @@
   padding-bottom: 132px;
 } */
 .footer-p-center {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
