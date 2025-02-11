@@ -1042,3 +1042,16 @@ textarea {
 .form-btn:focus {
   background-color: #404bbf;
 }
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 408px;
+    min-height: 584px;
+    padding: 72px 24px 24px 24px;
+  }
+
+  .form-modal {
+    height: 336px;
+    width: 360px;
+  }
+}
