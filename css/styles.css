@@ -132,7 +132,6 @@ textarea {
     gap: 40px;
   }
   .address {
-    /*margin-left: auto; -уже не треба, бо вище зад для хедер контейнера justify-content: space-between, який розсуває контент*/
     font-style: normal;
     display: block;
   }
@@ -481,7 +480,6 @@ textarea {
     column-gap: 24px;
   }
   .second-section-item {
-    /* (100%-1 * 24px) / 2) */
     width: calc((100% - 24px) / 2);
   }
   .section-subtitle.mob-shrift {
@@ -497,7 +495,6 @@ textarea {
     gap: 24px;
   }
   .second-section-item {
-    /* (100%-3 * 24px) / 4) */
     width: calc((100% - 72px) / 4);
   }
   .div-second-section-icons {
@@ -611,12 +608,12 @@ textarea {
   justify-content: center;
 }
 .div-overlay {
-  position: relative; /*положення в потоці*/
-  overflow: hidden; /*сховати оверлей коли він статичний(ще без руху) */
+  position: relative;
+  overflow: hidden;
 }
-.p-overlay /* параграф, не псевдоелемент*/ {
+.p-overlay {
   position: absolute;
-  top: 0; /*зміщення елемента до верхньої межі контейнера*/
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -628,20 +625,16 @@ textarea {
   color: #f4f4fd;
   padding: 40px 32px;
 
-  transform: translateY(
-    100%
-  ); /*стоїть на 100% розміра батька, не рухається без ховера.Число наскільки недосягне до верху оверлей статичний відносно батька.Якщо транслейт 30% статичний оверлей буде сягати 70% відносно батька і 30% недосягати відносно батька*/
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* плавну появу задаєм на сам ел, не в ховер*/
-  overflow: auto; /* при переповнені дасть скролбари*/
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: auto;
 }
 .portfolio-item {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
-.portfolio-item:hover .p-overlay /*дія на ел.нащадка оверлей,у котрого батько ітем,тобто li*/ {
-  transform: translateY(
-    0%
-  ); /*число наскільки недоїде вверх оверлей відносно розміру батька(якщо транслейт 10%, а батько 100% доїде на 90% вверх, не доїде 10% до верху*/
+.portfolio-item:hover .p-overlay {
+  transform: translateY(0%);
 }
 .div-portfolio-content {
   padding: 32px 16px;
@@ -656,7 +649,6 @@ textarea {
     column-gap: 24px;
   }
   .portfolio-item {
-    /* ((100%-2 * 24) /3)  шир батька мінус сума проміжків / к-сть ел В 1РЯДКУ! не в 2х*/
     width: calc((100% - 24px) / 2);
   }
 }
@@ -667,9 +659,8 @@ textarea {
     column-gap: 24px;
   }
   .portfolio-item {
-    /* ((100%-2 * 24) /3)  шир батька мінус сума проміжків / к-сть ел В 1РЯДКУ! не в 2х*/
     width: calc((100% - 48px) / 3);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавна тінь картки*/
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: none;
   }
   .portfolio-item:hover {
@@ -684,8 +675,6 @@ textarea {
 }
 .footer-container {
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
   flex-wrap: wrap;
   justify-content: center;
   gap: 72px;
@@ -997,10 +986,10 @@ textarea {
   margin-right: 8px;
   flex-shrink: 0;
 
-  display: inline-flex; /*для вирівн іконки-галочки*/
+  display: inline-flex; 
   align-items: center;
   justify-content: center;
-  fill: transparent; /*для прозорої галочки коли інпут не чекнутий, стан спокою*/
+  fill: transparent;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1),
