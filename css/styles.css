@@ -634,7 +634,7 @@ textarea {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* плавну появу задаєм на сам ел, не в ховер*/
   overflow: auto; /* при переповнені дасть скролбари*/
 }
-.portfolio-item:hover {
+.portfolio-item {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
@@ -658,7 +658,6 @@ textarea {
   .portfolio-item {
     /* ((100%-2 * 24) /3)  шир батька мінус сума проміжків / к-сть ел В 1РЯДКУ! не в 2х*/
     width: calc((100% - 24px) / 2);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавна тінь картки*/
   }
 }
 
@@ -670,18 +669,26 @@ textarea {
   .portfolio-item {
     /* ((100%-2 * 24) /3)  шир батька мінус сума проміжків / к-сть ел В 1РЯДКУ! не в 2х*/
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавна тінь картки*/
+    box-shadow: none;
+  }
+  .portfolio-item:hover {
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+      0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   }
 }
- /* ------------------------------------------------------FOOTER-------------- */
+/* ------------------------------------------------------FOOTER-------------- */
 .page-footer {
   background: #2e2f42;
   padding: 96px 0px;
 }
 .footer-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 72px;
-  align-items: center;
 }
 .logo-footer .logo-part {
   color: #f4f4fd;
@@ -730,9 +737,7 @@ textarea {
 .footer-soc-icon {
   fill: #f4f4fd;
 }
-.footer-block-right {
-margin: 0 auto;
-}
+
 .footer-form {
   display: flex;
   flex-direction: column;
@@ -777,6 +782,41 @@ margin: 0 auto;
 .footer-icon {
   fill: #fff;
 }
-@media screen and (min-width:768px) {
-  
+
+@media screen and (min-width: 768px) {
+  .footer-container {
+    padding-left: 108px;
+    row-gap: 72px;
+    column-gap: 24px;
+    justify-content: flex-start;
+  }
+  .logo-footer,
+  .footer-p-center {
+    text-align: left;
+  }
+  .footer-block-left {
+    max-width: 264px;
+  }
+  .footer-form {
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+  }
+  .footer-input {
+    width: 264px;
+  }
 }
+
+@media screen and (min-width: 1158px) {
+  .footer-container {
+    padding: 0;
+    gap: 0;
+  }
+  .footer-block-left {
+    margin-right: 120px;
+  }
+  .footer-block-right {
+    margin-left: auto;
+  }
+}
+
