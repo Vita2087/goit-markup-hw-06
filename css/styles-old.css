@@ -1,3 +1,498 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #434455;
+  background-color: #fff;
+  /* reset -скидання */
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+/* common -спільне*/
+button {
+  cursor: pointer;
+  padding: 0;
+}
+.container {
+  max-width: 1158px; /*1128+15+15*/
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+img {
+  display: block;
+  min-width: 100%;
+  height: auto;
+}
+input {
+  font-family: inherit;
+  font-weight: inherit;
+}
+input,
+textarea {
+  padding: 0;
+}
+/* *:focus {
+  outline: none;} */
+/* --------------------------------------HEADER----------------------------------------- */
+.page-header {
+  border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.nav-item {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавна зміна кольору тексту */
+}
+.address-list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo-link {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #4d5ae5;
+}
+.logo-link .logo-part {
+  color: #2e2f42;
+}
+.logo-header {
+  padding: 24px 0;
+  margin-right: 76px;
+}
+.nav-link {
+  padding: 24px 0;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+  /*анімацію кольору задаєм на саме посилання,не в ховер,інакше анімація буде в 1 сторону*/
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link.current {
+  position: relative; /*щоб відносно нього(ел посилання) зпозиціонувати привязати псевдоелемент */
+  color: #404bbf;
+}
+/*-створюєм псевдоелемент */
+.nav-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0; /*ліва точка,початок співпадає відносно з початком слова посилання*/
+  bottom: -1px; /* нижня точка початку*/
+  width: 100%; /*не має бути фіксована, має бути по шир слова-посилання*/
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
+}
+.nav-link:hover,
+.nav-link:focus,
+.address-link:hover,
+.address-link:focus {
+  color: #404bbf;
+}
+.address {
+  margin-left: auto;
+  font-style: normal;
+}
+.address-link {
+  display: block;
+  padding: 24px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/*-------------------------------------- SECTION 1------------------------------------- */
+.section-hero {
+  background: #2e2f42;
+  padding-top: 188px;
+  padding-bottom: 188px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* для позиц bg-img на всю площу фону елемента*/
+  background-position: center;
+}
+.page-title {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.07;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 496px;
+  margin-bottom: 48px;
+}
+button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background-color: #4d5ae5;
+}
+.button-box {
+  border: none;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 32px;
+  min-width: 169px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /*для плавної зміни кольору фону кнопки*/
+}
+.button-box:hover,
+.button-box.address-list {
+  background-color: #404bbf;
+}
+/* -------------------------------------SECTION 2--------------------------------------- */
+/* <h2 class="section-title absent">Advantages</h2> */
+/*.absent {
+  display: none; 
+} /*приховати h2 якого не відображ на сайті */
+ .second-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+ .second-section-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+ .second-section-item {
+  /* (100%-3 * 24px) / 4) */
+  width: calc((100% - 72px) / 4);
+}
+.div-second-section-icons {
+  background-color: #f4f4fd;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  /* padding: 24px 100px; */
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
+}
+.second-section-subtitle {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+  margin-bottom: 8px;
+}
+.second-section-p {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.019em;
+  color: #434455;
+}
+/* -----------------------------------SECTION 3---------------------------------------- */
+.third-section-team {
+  background: #f4f4fd;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.section-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #2e2f42;
+  text-transform: capitalize;
+  margin-bottom: 72px;
+}
+.third-section-subtitle {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #2e2f42;
+  margin-bottom: 8px;
+}
+.third-section-p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #434455;
+  margin-bottom: 8px;
+}
+.team-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.team-item {
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  width: calc((100% - 72px) / 4);
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+.div-team-who-is {
+  padding: 32px 0; /* 16px; */
+  text-align: center;
+}
+/* .icons-container {
+  width: 232px;
+  height: px;
+} */
+.team-soc-icons-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+  padding: 0 16px;
+}
+.soc-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  padding: 12px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /* плавна зміна кольору фона посилання*/
+}
+.soc-link:hover,
+.soc-link:focus {
+  background-color: #404bbf; /*#31d0aa;*/
+}
+.soc-icon {
+  fill: #f4f4fd;
+}
+/* .icon-fourth:last-child {margin-right: 0;} */
+/* .icons-who-is:not(:last-child) {
+  margin-right: 24px;
+} */
+/* ------------------------------------------------SECTION 4---------------------------------------------- 4 */
+.fourth-section-portfolio {
+  padding: 120px 0;
+}
+.section-title {
+  margin-bottom: 72px;
+}
+.portfolio-list {
+  display: flex;
+  row-gap: 48px;
+  column-gap: 24px;
+  max-width: 1128px;
+  flex-wrap: wrap;
+}
+.portfolio-item {
+  /* ((100%-2 * 24) /3)  шир батька мінус сума проміжків / к-сть ел В 1РЯДКУ! не в 2х*/
+  width: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавна тінь картки*/
+}
+.div-overlay {
+  position: relative; /*положення в потоці*/
+  overflow: hidden; /*сховати оверлей коли він статичний(ще без руху) */
+}
+.p-overlay /* параграф, не псевдоелемент*/ {
+  position: absolute;
+  top: 0; /*зміщення елемента до верхньої межі контейнера*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  transform: translateY(
+    100%
+  ); /*стоїть на 100% розміра батька, не рухається без ховера.Число наскільки недосягне до верху оверлей статичний відносно батька.Якщо транслейт 30% статичний оверлей буде сягати 70% відносно батька і 30% недосягати відносно батька*/
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* плавну появу задаєм на сам ел, не в ховер*/
+  overflow: auto; /* при переповнені дасть скролбари*/
+}
+.portfolio-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+.portfolio-item:hover .p-overlay /*дія на ел.нащадка оверлей,у котрого батько ітем,тобто li*/ {
+  transform: translateY(
+    0%
+  ); /*число наскільки недоїде вверх оверлей відносно розміру батька(якщо транслейт 10%, а батько 100% доїде на 90% вверх, не доїде 10% до верху*/
+}
+.portfolio-content {
+  padding: 32px 16px;
+  text-align: left;
+  border: 1px solid #e7e9fc;
+  border-top: none;
+}
+.portfolio-subtitle {
+  margin-bottom: 8px;
+}
+/* ----------------------------------- FOOTER-------------------------------------------- */
+.page-footer {
+  background: #2e2f42;
+  padding: 100px 0;
+}
+.logo-footer .logo-part {
+  color: #f4f4fd;
+}
+.logo-footer {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.footer-block-left {
+  margin-right: 120px;
+}
+.footer-p-left {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  max-width: 264px;
+}
+.footer-container {
+  display: flex;
+  align-items: baseline; /*вирівнює блоки по вертикалі відносно лінії тексту першого рядка кожного елемента*/
+}
+/* .footer-block-center {
+  padding-bottom: 132px;
+} */
+.footer-p-center {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.footer-soc-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-soc-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4d5ae5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-soc-link:hover,
+.footer-soc-link:focus {
+  background-color: #31d0aa;
+}
+.footer-soc-icon {
+  fill: #f4f4fd;
+}
+.footer-block-right {
+  margin-left: auto;
+}
+.footer-form {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-input {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  width: 264px;
+  height: 40px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+}
+.footer-input::placeholder {
+  color: #fff;
+}
+.footer-input:hover,
+.footer-input:focus {
+  border-color: #31d0aa;
+}
+.footer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 165px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-btn:hover,
+.footer-btn:focus {
+  background-color: #31d0aa;
+}
+.footer-icon {
+  fill: #fff;
+  margin-left: 16px;
+}
 /*------------------------------------ Backdrop + Modal Window------------------------- */
 .backdrop {
   position: fixed; /*початкова позиція, стан спокою, перед появою(анімацією)*/
@@ -6,11 +501,9 @@
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-
   opacity: 0;
   visibility: hidden; /* приховати фон з вікном */
   pointer-events: none; /*заборона кліку по фону з вікном, коли він в стані спокою,ще не явився*/
-
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -19,7 +512,6 @@
   visibility: visible;
   pointer-events: auto;
 }
-
 .modal /*вікно*/ {
   position: absolute; /*зпозиціоноване вікно відносно перекриваючого фіксованого фону*/
   top: 50%; /* точка лівого верхнього кута стала на 50% від верху перекриваючого фону і на 50% від лівого краю фону(бекдропу), точка чітко по центру, а прямокутник(вікно) відповідно правіше.*/
@@ -76,7 +568,6 @@
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
-
   text-align: center;
   margin-bottom: 16px;
 }
@@ -138,7 +629,6 @@
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   padding: 8px 16px;
-
   resize: none;
   font-size: 12px;
   line-height: 1.17;
@@ -159,7 +649,11 @@
 /*display: flex;
   align-items: center; */
 /* gap: 24px; */
-
+.input-check {
+  /* margin-left: 24px;
+  margin-right: 8px;
+  margin-bottom: 24px; */
+}
 .label-check {
   font-size: 12px;
   line-height: 1.17;
@@ -172,12 +666,10 @@
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
   margin-right: 8px;
-
   display: inline-flex; /*для вирівн іконки-галочки*/
   align-items: center;
   justify-content: center;
   fill: transparent; /*для прозорої галочки коли інпут не чекнутий, стан спокою*/
-
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -194,7 +686,6 @@
   border: none;
   fill: #f4f4fd;
 }
-
 .form-btn {
   font-weight: 500;
   font-size: 16px;
@@ -202,7 +693,6 @@
   letter-spacing: 0.04em;
   text-align: center;
   color: #fff;
-
   background-color: #4d5ae5;
   border: none;
   border-radius: 4px;
