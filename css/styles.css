@@ -552,6 +552,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   row-gap: 72px;
 }
 .team-item {
@@ -592,14 +593,22 @@ textarea {
   .team-list {
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 64px;
-    column-gap: 24px;
-    padding: 108px;
+    gap: 64px 24px;
   }
   .team-item {
     width: calc((100% - 24px) / 2);
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+  .third-section-container {
+    padding: 0 108px;
+  }
+}
+/* @media screen and (min-width: 768px) and (max-width: 1157px) { 
+  .third-section-container {
+      max-width: 552px; ---(768-108-108)
+  }
+} */
 
 @media screen and (min-width: 1158px) {
   .team-list {
@@ -761,17 +770,18 @@ textarea {
   gap: 16px;
 }
 .footer-input {
-  color: #fff;
-  background-color: transparent;
   border: 1px solid #fff;
   border-radius: 4px;
+  background-color: transparent;
   width: 288px;
   height: 40px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  color: #fff;
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
   padding-left: 16px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-input::placeholder {
   color: #fff;
@@ -825,7 +835,7 @@ textarea {
 
 @media screen and (min-width: 1158px) {
   .footer-container {
-    padding: 0;
+    padding-left: 15px;
     gap: 0;
   }
   .footer-block-left {
